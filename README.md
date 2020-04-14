@@ -1,4 +1,4 @@
-# COD4 Docker dedicated server
+# COD4 Docker dedicated server #
 Runs a Call of duty 4 Modern Warfare dedicated server in a Docker container.
 <img align="right" src="https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4.ico">
 - Based on:
@@ -13,6 +13,29 @@ Runs a Call of duty 4 Modern Warfare dedicated server in a Docker container.
 - You can find a sample file to a "server.cfg" file on github.
 ~~~
 https://github.com/henkall/docker-cod4
+~~~
+
+## Here is a example to get going with a server using compose. ##
+~~~
+---
+version: "2.2"
+services:
+  cod4server:
+    image: henkallsn/docker-cod4
+    # Change the name if you want to.
+    container_name: COD4DED
+    network_mode: "host"
+    environment:
+      - READY=YES
+      - EXECFILE=server.cfg
+      - SERVERTYPE=1
+      - PORT=28961
+      - MAP=+map_rotate
+      - MODNAME=
+      - EXTRA=+set sv_authorizemode -1
+    volumes:
+      # Remember to change this
+      - /Path/to/COD4/gamefiles:/home/cod4/gamefiles
 ~~~
 
 Note the files can be found in the installed game directory. 
