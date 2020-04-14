@@ -1,9 +1,6 @@
 # COD4 Docker dedicated server
-
-This is WIP but it works on your local network.  LAN
-
 Runs a Call of duty 4 Modern Warfare dedicated server in a Docker container.
-
+<img align="right" src="https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4.ico">
 - Based on:
     - [Cod4x](https://cod4x.me/) server program
     - Unzip and curl to download the Cod4x
