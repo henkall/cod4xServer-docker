@@ -10,7 +10,7 @@ ENV SERVERTYPE=""
 ENV EXECFILE=""
 
 RUN apt-get update && \
-    apt-get install -y libstdc++6 build-essential gcc-multilib g++-multilib unzip curl nano
+    apt-get install -y gcc-multilib g++-multilib unzip curl
 
 RUN groupadd -r cod4 && useradd --no-log-init -r -g cod4 cod4
 ADD cod4 /home/cod4/
