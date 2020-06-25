@@ -9,8 +9,7 @@ ENV EXTRA=""
 ENV SERVERTYPE=""
 ENV EXECFILE=""
 
-RUN apt-get update && \
-    apt-get install -y gcc-multilib g++-multilib unzip curl
+RUN apt-get install -y unzip curl
 
 RUN groupadd -r cod4 && useradd --no-log-init -r -g cod4 cod4
 ADD cod4 /home/cod4/
