@@ -18,7 +18,7 @@ RUN chown -R cod4:cod4 /home/cod4
 
 USER cod4
 WORKDIR /home/cod4
-
+RUN chmod 777 /home/cod4/gamefiles
 RUN chmod +x script.sh
 ENTRYPOINT ["/home/cod4/script.sh"]
 
