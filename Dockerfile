@@ -20,6 +20,6 @@ USER cod4
 WORKDIR /home/cod4
 
 RUN chmod +x script.sh
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/home/cod4/script.sh"]
 
 VOLUME ["/home/cod4/gamefiles/"]
