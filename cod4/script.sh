@@ -29,7 +29,7 @@ else
 fi
 if [ ! -f gamefiles/cod4x18_dedrun ]; then
     echo "cod4x18_dedrun not found... trying to download it."
-    curl https://raw.githubusercontent.com/henkall/docker-cod4/ubuntu/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip -d gamefiles && rm cod4xfiles.zip
+    curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip -d gamefiles && rm cod4xfiles.zip
     echo "Download Done"
     chmod +x gamefiles/cod4x18_dedrun
     echo ready
