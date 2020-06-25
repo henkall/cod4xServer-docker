@@ -1,6 +1,4 @@
 FROM ubuntu
-ENV LANG=da_DK.UTF-8
-ENV LANGUAGE=da_DK
 
 # Running options to COD4 server 
 ENV READY=""
@@ -10,8 +8,6 @@ ENV MAP="+map_rotate"
 ENV EXTRA=""
 ENV SERVERTYPE=""
 ENV EXECFILE=""
-
-ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
     apt-get install -y libstdc++6 build-essential gcc-multilib g++-multilib unzip curl nano
