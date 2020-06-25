@@ -15,7 +15,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y build-essential gcc-multilib g++-multilib lib32stdc++6 unzip curl nano
+    apt-get install -y nasm:i386 build-essential gcc-multilib g++-multilib unzip curl nano
 
 RUN groupadd -r cod4 && useradd --no-log-init -r -g cod4 cod4
 ADD cod4 /home/cod4/
