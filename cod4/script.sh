@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 if [ "$(ls -A gamefiles/main)" ]; then
 	echo "Main is Good"
-	chmod 777 gamefiles/main
 	echo "Testing if xbase_00.iwd is in main"
 	if [[ ! -f gamefiles/main/xbase_00.iwd ]]; then
 	echo "Xbase_00.iwd not found copying it now"
 	cp xbase_00.iwd gamefiles/main/
-	echo "Copying xbase_00.iwd done"
 	else
 	echo "Xbase_00.iwd is Good"
 	fi
