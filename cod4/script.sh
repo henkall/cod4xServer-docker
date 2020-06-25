@@ -75,6 +75,7 @@ if [[ ! -z "${READY}" ]]; then
 		gamefiles/cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	else
 		echo "Not using Mod"
+		ldd gamefiles/cod4x18_dedrun
 		gamefiles/cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	fi
 
