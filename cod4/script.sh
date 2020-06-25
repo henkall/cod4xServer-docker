@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 if [ "$(ls -A gamefiles/main)" ]; then
 	echo "Main is Good"
-	chmod 777 gamefiles/main
 	echo "Testing if xbase_00.iwd is in main"
 	if [[ ! -f gamefiles/main/xbase_00.iwd ]]; then
 	echo "Xbase_00.iwd not found copying it now"
 	cp xbase_00.iwd gamefiles/main/
-	echo "Copying xbase_00.iwd done"
 	else
 	echo "Xbase_00.iwd is Good"
 	fi
@@ -16,19 +14,16 @@ fi
 
 if [ "$(ls -A gamefiles/mods)" ]; then
      echo "Mods Good"
-     chmod 777 gamefiles/mods
 else
     echo "ERROR Mods is Empty"
 fi
 if [ "$(ls -A gamefiles/usermaps)" ]; then
      echo "Usermaps Good"
-     chmod 777 gamefiles/usermaps
 else
     echo "ERROR Usermaps is Empty"
 fi
 if [ "$(ls -A gamefiles/zone)" ]; then
      echo "Zone is Good"
-     chmod 777 gamefiles/zone
 else
     echo "ERROR Zone is Empty"
 fi
@@ -72,11 +67,12 @@ if [[ ! -z "${READY}" ]]; then
 	echo "Config is Ready"
 	if [[ ! -z "${MODNAME}" ]]; then
 		echo "Mod enabled (using $MODNAME mod)"
-		gamefiles/cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
+		cd gamefiles
+		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	else
 		echo "Not using Mod"
-		ldd gamefiles/cod4x18_dedrun
-		gamefiles/cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
+		cd gamefiles
+		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	fi
 
 fi
