@@ -16,7 +16,7 @@ RUN apt-get update && \
     apt-get install -y gcc-multilib g++-multilib unzip curl
 WORKDIR /home/cod4/gamefiles
 # Adding files from github
-ADD cod4 /home/cod4/
+ADD cod4 /home/cod4/gamefiles/
 # Adding user "cod4" and setting permissions
 RUN adduser --system cod4 --home /home/cod4 --uid 1000 && \
     chown -R cod4 /home/cod4 && \
