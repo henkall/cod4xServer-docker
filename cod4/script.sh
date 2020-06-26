@@ -38,6 +38,8 @@ then
 			echo "Download Done"
 			chmod +x cod4x18_dedrun
 			echo ready
+			servergood=1
+			echo $servergood
 		else
 			chmod +x cod4x18_dedrun
 			echo "cod4x18_dedrun found" 
