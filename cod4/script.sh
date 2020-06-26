@@ -84,7 +84,7 @@ fi
 echo "Checking if READY"
 if [ $servergood -eq 1 ]
 then
-
+	echo "server is good"
 	if [ ! -z "${READY}" ] 
 	then
 		echo "Config is Ready"
@@ -95,7 +95,6 @@ then
 			echo "Not using Mod"
 			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 		fi
-
 	fi
 else
 	echo "ERROR: Permissions on gamefiles folder has to be 777 or 2777"
