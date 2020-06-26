@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-if [ "$(ls -A gamefiles/main)" ]; then
+if [ "$(ls -A main)" ]; then
 	echo "Main is Good"
 	echo "Testing if xbase_00.iwd is in main"
-	if [[ ! -f gamefiles/main/xbase_00.iwd ]]; then
+	if [[ ! -f main/xbase_00.iwd ]]; then
 	echo "Xbase_00.iwd not found copying it now"
-	cp xbase_00.iwd gamefiles/main/
+	cp xbase_00.iwd main/
 	else
 	echo "Xbase_00.iwd is Good"
 	fi
@@ -12,29 +12,29 @@ else
 echo "ERROR Main is Empty"
 fi
 
-if [ "$(ls -A gamefiles/mods)" ]; then
+if [ "$(ls -A mods)" ]; then
      echo "Mods Good"
 else
     echo "ERROR Mods is Empty"
 fi
-if [ "$(ls -A gamefiles/usermaps)" ]; then
+if [ "$(ls -A usermaps)" ]; then
      echo "Usermaps Good"
 else
     echo "ERROR Usermaps is Empty"
 fi
-if [ "$(ls -A gamefiles/zone)" ]; then
+if [ "$(ls -A zone)" ]; then
      echo "Zone is Good"
 else
     echo "ERROR Zone is Empty"
 fi
-if [ ! -f gamefiles/cod4x18_dedrun ]; then
+if [ ! -f cod4x18_dedrun ]; then
     echo "cod4x18_dedrun not found... trying to download it."
-    curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip -d gamefiles && rm cod4xfiles.zip
+    curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
     echo "Download Done"
-    chmod +x gamefiles/cod4x18_dedrun
+    chmod +x cod4x18_dedrun
     echo ready
 else
-  chmod +x gamefiles/cod4x18_dedrun
+  chmod +x cod4x18_dedrun
   echo "cod4x18_dedrun found" 
 fi
 echo "Setting server type"
@@ -67,11 +67,9 @@ if [[ ! -z "${READY}" ]]; then
 	echo "Config is Ready"
 	if [[ ! -z "${MODNAME}" ]]; then
 		echo "Mod enabled (using $MODNAME mod)"
-		cd gamefiles
 		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	else
 		echo "Not using Mod"
-		cd gamefiles
 		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	fi
 
