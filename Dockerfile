@@ -24,6 +24,6 @@ RUN adduser --system cod4 --home /home/cod4 --uid 1000 && \
     chown -R cod4 /home/cod4/gamefiles && \
     chmod -R 777 /home/cod4/gamefiles && \
     # Making file executable
-    chmod +x /home/cod4/script.sh
-ENTRYPOINT ["/home/cod4/script.sh"]
+    chmod +x /home/cod4/gamefiles/script.sh
+ENTRYPOINT ["/home/cod4/gamefiles/script.sh"]
 USER cod4
