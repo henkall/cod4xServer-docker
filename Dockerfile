@@ -16,7 +16,7 @@ RUN apt-get update && \
     apt-get install -y gcc-multilib g++-multilib unzip curl
 WORKDIR /home/cod4/gamefiles
 # Adding files from github
-ADD cod4 /home/cod4/gamefiles/
+COPY --chown=1000 cod4/script.sh /home/cod4/
 # Adding user "cod4" and setting permissions
 RUN adduser --system cod4 --home /home/cod4 --uid 1000 && \
     chown -R cod4 /home/cod4 && \
@@ -24,6 +24,6 @@ RUN adduser --system cod4 --home /home/cod4 --uid 1000 && \
     chown -R cod4 /home/cod4/gamefiles && \
     chmod -R 777 /home/cod4/gamefiles && \
     # Making file executable
-    chmod +x /home/cod4/gamefiles/script.sh
-ENTRYPOINT ["/home/cod4/gamefiles/script.sh"]
+    chmod +x /home/cod4/script.sh
+ENTRYPOINT ["/home/cod4/script.sh"]
 USER cod4
