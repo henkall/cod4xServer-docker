@@ -42,9 +42,11 @@ then
 			chmod +x cod4x18_dedrun
 			echo "cod4x18_dedrun found" 
 			servergood=1
+			echo $servergood
 		fi
 	else
 		servergood=0
+		echo $servergood
 		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
 	fi
 fi
