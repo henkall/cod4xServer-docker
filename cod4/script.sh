@@ -26,7 +26,7 @@ fi
 if [ -d "/home/cod4/gamefiles" ]
 then
 	echo "Directory gamefiles exists"
-	folderperm=$(stat --format '%a' gamefiles)
+	folderperm=$(stat --format '%a' /home/cod4/gamefiles)
 	echo $folderperm
 	if [ $folderperm -eq 2777 -o $folderperm -eq 777 ]
 	then
