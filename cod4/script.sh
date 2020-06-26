@@ -41,10 +41,10 @@ then
 		else
 			chmod +x cod4x18_dedrun
 			echo "cod4x18_dedrun found" 
-			servergood=0
+			servergood=1
 		fi
 	else
-		servergood=1
+		servergood=0
 		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
 	fi
 fi
@@ -80,7 +80,7 @@ then
   MAP="+map_rotate"
 fi
 echo "Checking if READY"
-if [ $servergood ]
+if [ $servergood -eq 1 ]
 then
 
 	if [ ! -z "${READY}" ] 
