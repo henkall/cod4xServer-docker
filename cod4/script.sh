@@ -41,46 +41,60 @@ then
 		else
 			chmod +x cod4x18_dedrun
 			echo "cod4x18_dedrun found" 
+			servergood=1
 		fi
 	else
-		echo "Permissions on folder has to be 777 or 2777"
+		servergood=0
+		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
 	fi
 fi
 
 echo "Setting server type"
-if [[ -z "${SERVERTYPE}" ]]; then
+if [ -z "${SERVERTYPE}" ] 
+then
   echo "The SERVERTYPE variable is empty."
   SERVERTYPE="1"
 fi
 echo "Setting port"
-if [[ -z "${PORT}" ]]; then
+if [ -z "${PORT}" ] 
+then
   echo "The PORT variable is empty."
   PORT="28960"
 fi
 echo "Setting EXTRA arg"
-if [[ -z "${EXTRA}" ]]; then
+if [ -z "${EXTRA}" ] 
+then
   echo "The EXTRA variable is empty."
   EXTRA="+set sv_authorizemode -1"
 fi
 echo "Setting exec file"
-if [[ -z "${EXECFILE}" ]]; then
+if [ -z "${EXECFILE}" ] 
+then
   echo "The EXECFILE variable is empty."
   EXECFILE="server.cfg"
 fi
 echo "Setting MAP"
-if [[ -z "${MAP}" ]]; then
+if [ -z "${MAP}" ] 
+then
   echo "The MAP variable is empty."
   MAP="+map_rotate"
 fi
 echo "Checking if READY"
-if [[ ! -z "${READY}" ]]; then
-	echo "Config is Ready"
-	if [[ ! -z "${MODNAME}" ]]; then
-		echo "Mod enabled (using $MODNAME mod)"
-		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
-	else
-		echo "Not using Mod"
-		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
-	fi
+if [ $servergood ]
+then
 
+	if [ ! -z "${READY}" ] 
+	then
+		echo "Config is Ready"
+		if [[ ! -z "${MODNAME}" ]]; then
+			echo "Mod enabled (using $MODNAME mod)"
+			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
+		else
+			echo "Not using Mod"
+			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
+		fi
+
+	fi
+else
+	echo "ERROR: Permissions on gamefiles folder has to be 777 or 2777"
 fi
