@@ -2,12 +2,32 @@
 if [ -d "main" ]
 then
     echo "Directory main exists."
+    foldermain=$(stat --format '%a' /home/cod4/gamefiles/main)
+    if [ $foldermain -eq 2777 -o $foldermain -eq 777 ]
+	then
+	   echo "Permissions on 'main' folder fine"
+    else
+	   echo "ERROR: Permissions on 'main' folder has to be 777 or 2777"
+	   echo "ERROR: Go into gamefiles foler and run command: chmod -R 777 * "
+	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
+	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
+    fi
 else
     echo "ERROR: Directory main is missing."
 fi
 if [ -d "zone" ]
 then
     echo "Directory zone exists."
+    folderzone=$(stat --format '%a' /home/cod4/gamefiles/zone)
+    if [ $folderzone -eq 2777 -o $folderzone -eq 777 ]
+	then
+	   echo "Permissions on 'zone' folder fine"
+    else
+	   echo "ERROR: Permissions on 'zone' folder has to be 777 or 2777"
+	   echo "ERROR: Go into gamefiles foler and run command: chmod -R 777 * "
+	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
+	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
+    fi
 else
     echo "ERROR: Directory zone is missing"
 fi
@@ -50,6 +70,7 @@ then
 		servergood=0
 		echo $servergood
 		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
+		echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 	fi
 fi
 
@@ -100,4 +121,5 @@ then
 	fi
 else
 	echo "ERROR: Permissions on gamefiles folder has to be 777 or 2777"
+	echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 fi
