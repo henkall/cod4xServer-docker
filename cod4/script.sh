@@ -8,7 +8,7 @@ then
 	   echo "Permissions on 'main' folder fine"
     else
 	   echo "ERROR: Permissions on 'main' folder has to be 777 or 2777"
-	   echo "ERROR: Go into gamefiles foler and run command: chmod -R 777 * "
+	   echo "ERROR: Go into gamefiles folder and run command: chmod -R 777 * "
 	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
 	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
     fi
@@ -24,7 +24,7 @@ then
 	   echo "Permissions on 'zone' folder fine"
     else
 	   echo "ERROR: Permissions on 'zone' folder has to be 777 or 2777"
-	   echo "ERROR: Go into gamefiles foler and run command: chmod -R 777 * "
+	   echo "ERROR: Go into gamefiles folder and run command: chmod -R 777 * "
 	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
 	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
     fi
