@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "Server Starting ----------------------------------------------------------------------------"
 if [ -d "main" ]
 then
     echo "Directory main exists."
