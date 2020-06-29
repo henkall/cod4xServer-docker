@@ -14,7 +14,7 @@ ENV GETGAMEFILES="0"
 VOLUME ["/home/cod4/gamefiles/"]
 # Installing dependencies
 RUN apt-get update && \
-    apt-get install -y gcc-multilib g++-multilib unzip curl
+    apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils
 WORKDIR /home/cod4/gamefiles
 # Adding files from github
 COPY --chown=1000 cod4/script.sh /home/cod4/
