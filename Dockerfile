@@ -9,6 +9,7 @@ ENV SERVERTYPE=""
 ENV EXECFILE=""
 ENV PUID="1000"
 ENV GUID="1000"
+ENV GETGAMEFILES="0"
 # Setting a volume
 VOLUME ["/home/cod4/gamefiles/"]
 # Installing dependencies
