@@ -127,9 +127,10 @@ then
 				    echo "Directory modernpaintball exists."
 				else
 				    echo "ERROR: Directory modernpaintball is missing."
-				    curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
+				    # curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
 				fi
 			else
+				echo "Mod enabled (Is not modernpaintball)"
 			fi
 			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 		else
