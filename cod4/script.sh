@@ -128,6 +128,7 @@ then
 				else
 				    echo "ERROR: Directory modernpaintball is missing."
 				    # curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
+				    echo "Mod downloaded. :)"
 				fi
 			else
 				echo "Mod enabled (Is not modernpaintball)"
