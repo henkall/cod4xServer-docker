@@ -120,6 +120,17 @@ then
 		echo "Config is Ready"
 		if [[ ! -z "${MODNAME}" ]]; then
 			echo "Mod enabled (using $MODNAME mod)"
+			if [ $MODNAME = "modernpaintball" ]
+			then
+				if [ -d "Mods/modernpaintball" ]
+				then
+				    echo "Directory modernpaintball exists."
+				else
+				    echo "ERROR: Directory modernpaintball is missing."
+				    curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
+				fi
+			else
+			fi
 			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 		else
 			echo "Not using Mod"
