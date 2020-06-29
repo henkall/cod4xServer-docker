@@ -55,7 +55,12 @@ then
 		if [ ! -f cod4x18_dedrun ]
 		then
 			echo "cod4x18_dedrun not found... trying to download it."
-			curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+			if [ $GETGAMEFILES -eq 1 ]
+			then
+				curl http://linuxgsm.download/CallOfDuty4/cod4x18_1790_lnxded.tar.xz -o cod4x18.tar.xz && tar -xf cod4x18.tar.xz && rm cod4x18.tar.xz
+			else
+				curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+			fi
 			echo "Download Done"
 			chmod +x cod4x18_dedrun
 			echo ready
