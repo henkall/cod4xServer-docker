@@ -11,11 +11,11 @@ then
 else
     echo "ERROR: Directory zone is missing"
 fi
-if [ -d "mods" ]
+if [ -d "Mods" ]
 then
-    echo "Directory mods exists."
+    echo "Directory Mods exists."
 else
-    echo "ERROR: Directory mods is missing"
+    echo "ERROR: Directory Mods is missing"
 fi
 if [ -d "usermaps" ]
 then
