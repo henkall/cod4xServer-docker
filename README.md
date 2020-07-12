@@ -89,4 +89,6 @@ Here is a list of commands that I use:
 
 1. Run a COD4 client and try to connect to `yourhostIPaddress:28960`
 
-OBS: If you can't see the server in the game then try to add the server ip to the favorites in Call of Duty server list. Remember the portnumber.
+OBS: If you can't see the server in the game then try to add the server ip to the favorites in Call of Duty server list. Remember the portnumber. Also check your filter so you allow it to show moded servers.
+
+If you are running version 1.7 of the game then get the patch from https://cod4x.me/ (The Windows client download). This can be removed again if you don't want to use it anymore.
