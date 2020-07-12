@@ -2,7 +2,7 @@
 echo "Server Starting ----------------------------------------------------------------------------------"
 if [ -d "main" ]
 then
-    echo "Directory main exists."
+    echo " Directory main exists."
     foldermain=$(stat --format '%a' /home/cod4/gamefiles/main)
     if [ $foldermain -eq 2777 -o $foldermain -eq 777 ]
 	then
@@ -20,7 +20,7 @@ else
 fi
 if [ -d "zone" ]
 then
-    echo "Directory zone exists."
+    echo " Directory zone exists."
     folderzone=$(stat --format '%a' /home/cod4/gamefiles/zone)
     if [ $folderzone -eq 2777 -o $folderzone -eq 777 ]
 	then
@@ -38,19 +38,19 @@ else
 fi
 if [ -d "Mods" ]
 then
-    echo "Directory Mods exists."
+    echo " Directory Mods exists."
 else
     echo "ERROR: Directory Mods is missing"
 fi
 if [ -d "usermaps" ]
 then
-    echo "Directory usermaps exists."
+    echo " Directory usermaps exists."
 else
     echo "ERROR: Directory usermaps is missing"
 fi
 if [ -d "/home/cod4/gamefiles" ]
 then
-	echo "Directory gamefiles exists"
+	echo " Directory gamefiles exists"
 	folderperm=$(stat --format '%a' /home/cod4/gamefiles)
 	echo $folderperm
 	if [ $folderperm -eq 2777 -o $folderperm -eq 777 ]
