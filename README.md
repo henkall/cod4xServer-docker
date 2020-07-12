@@ -8,12 +8,9 @@ Runs a Call of duty 4 Modern Warfare dedicated server in a Docker container.
 - Based on:
     - [Cod4x](https://cod4x.me/) server program
     - Unzip and curl to download the Cod4x
-- Compatible with COD4 1.7 clients
-- Original COD4 **main** and **zone** files required
+- You should go get the Windows client from https://cod4x.me/
+    - It is a patch to Call of Duty 4 Modern Warfare so you are able to se the server.
 - Works with custom mods and usermaps
-
-- You only need the "main", "zone", "mods" and "usermaps" from your Call of Duty 4.
-- You can omit the `main/video` directory as this is not needed by the server.
 - You can find a sample file to a "server.cfg" file on github.
 ~~~
 https://github.com/henkall/docker-cod4
@@ -22,7 +19,7 @@ https://github.com/henkall/docker-cod4
 ## Here is a example to get going with a server using compose. ##
 ~~~
 ---
-version: "2.2"
+version: "2"
 services:
   cod4server:
     image: henkallsn/docker-cod4
@@ -35,8 +32,10 @@ services:
       - SERVERTYPE=1
       - PORT=28961
       - MAP=+map_rotate
+      # Mod navn kan være tom
       - MODNAME=
       - EXTRA=+set sv_authorizemode -1
+      - GETGAMEFILES=1
     volumes:
       # Remember to change this
       - /Path/to/COD4/gamefiles:/home/cod4/gamefiles
@@ -76,6 +75,8 @@ Here is a list of commands that I use:
 | MAP | Starts the server with the defined rotate sequens in server.cfg file. | +map_rotate |
 | MODNAME | Defines what mod you whant to use. Write the name of the folder that you mod is in. For example moderpaintball. | $MODNAME$ |
 | EXTRA | 1 only allows players with legal copies to join, 0 allows cracked players, and -1 allows both types of players while the Activison authentication server is down. | +set sv_authorizemode -1 |
+| GETGAMEFILES | Tells the server to get gamefiles or not. 1 is to get files. 0 is not to get files. | 1 |
+
 
 [HERE]: https://cod4x.me/index.php?/forums/topic/2814-new-requirement-for-cod4-x-servers-to-get-listed-on-masterserver/
 ## Testing
