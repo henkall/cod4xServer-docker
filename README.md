@@ -1,5 +1,7 @@
 # COD4 Docker dedicated server #
 Runs a Call of duty 4 Modern Warfare dedicated server in a Docker container.
+
+Update: New feature. The docker can now get the gamefiles for you.
 <img align="right" src="https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4.ico">
 
 [![](https://images.microbadger.com/badges/version/henkallsn/docker-cod4.svg)](https://microbadger.com/images/henkallsn/docker-cod4 "Image Version")
@@ -30,9 +32,10 @@ services:
       - READY=YES
       - EXECFILE=server.cfg
       - SERVERTYPE=1
+      # This port can be changed. It is UDP.
       - PORT=28961
       - MAP=+map_rotate
-      # Mod navn kan være tom
+      # Mod name can be empty
       - MODNAME=
       - EXTRA=+set sv_authorizemode -1
       - GETGAMEFILES=1
@@ -47,7 +50,6 @@ Note the files can be found in the installed game directory.
 ~~~
 
 Note the following.
-- The container uses by default port UDP 28960 as default so that has to be forwarded.
 
 | **Host path** | **Container path** | Note |
 | --- | --- | --- |
