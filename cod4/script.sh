@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-echo "Server Starting ----------------------------------------------------------------------------"
+#!/bin/bash
+echo "Server Starting ----------------------------------------------------------------------------------"
 if [ -d "main" ]
 then
     echo "Directory main exists."
@@ -12,6 +12,8 @@ then
 	   echo "ERROR: Go into gamefiles folder and run command: chmod -R 777 * "
 	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
 	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
+	   chmod -R 777 /home/cod4/gamefiles/main
+	   echo "fix applied to main ---------------------------------------------------------------------------"
     fi
 else
     echo "ERROR: Directory main is missing."
@@ -28,6 +30,8 @@ then
 	   echo "ERROR: Go into gamefiles folder and run command: chmod -R 777 * "
 	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
 	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
+	   chmod -R 777 /home/cod4/gamefiles/zone
+	   echo "fix applied to zone ---------------------------------------------------------------------------"
     fi
 else
     echo "ERROR: Directory zone is missing"
@@ -78,6 +82,8 @@ then
 		echo $servergood
 		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
 		echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
+		chmod -R 777 /home/cod4/gamefiles
+		echo "fix applied to gamefiles ---------------------------------------------------------------------------"
 	fi
 fi
 
