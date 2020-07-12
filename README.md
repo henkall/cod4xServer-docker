@@ -59,7 +59,7 @@ Note the following.
 | --- | --- |
 | main | I copied the contents of this from my CoD4:MW |
 | zone | I copied the contents of this from my CoD4:MW |
-| mods | I keep any mods I want to use on the server in here |
+| Mods | I keep any mods I want to use on the server in here |
 | usermaps | I keep my custom maps in here |
 
 Important:
