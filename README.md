@@ -33,7 +33,7 @@ services:
       - EXECFILE=server.cfg
       - SERVERTYPE=1
       # This port can be changed. It is UDP.
-      - PORT=28961
+      - PORT=28960
       - MAP=+map_rotate
       # Mod name can be empty
       - MODNAME=
@@ -50,6 +50,10 @@ Note the files can be found in the installed game directory.
 ~~~
 
 Note the following.
+
+The server.cfg file should be located in the main folder. 
+
+If you are running with a mod then the server.cfg file for that mod has to be in the same folder as the mod.
 
 | **Host path** | **Container path** | Note |
 | --- | --- | --- |
@@ -73,7 +77,7 @@ Here is a list of commands that I use:
 | READY | Checking if you are Ready. Server don't start if this is empty | YES |
 | EXECFILE | The name of the config file that should be used. Placed in the "main" folder if you are not using mods. When mods is used you can place the file on the same folder as the mod. | server.cfg |
 | SERVERTYPE | 2 Is for Internet. 1 Is for LAN. If 2 is used you have to use: set sv_authtoken "mytokenhere" in the server.cfg file. You can read about it [HERE]. |  1 |
-| PORT | Set what port the server should run on. If left empty is defaults to 28960 | 28960 |
+| PORT | Set what port the server should run on. If left empty this defaults to 28960 | 28960 |
 | MAP | Starts the server with the defined rotate sequens in server.cfg file. | +map_rotate |
 | MODNAME | Defines what mod you whant to use. Write the name of the folder that you mod is in. For example moderpaintball. | $MODNAME$ |
 | EXTRA | 1 only allows players with legal copies to join, 0 allows cracked players, and -1 allows both types of players while the Activison authentication server is down. | +set sv_authorizemode -1 |
@@ -85,4 +89,4 @@ Here is a list of commands that I use:
 
 1. Run a COD4 client and try to connect to `yourhostIPaddress:28960`
 
-OBS: If you use this on OpenMediaValt you have to add the server ip to the favorrites in Call of Duty server list.
+OBS: If you can't see the server in the game then try to add the server ip to the favorites in Call of Duty server list. Remember the portnumber.
