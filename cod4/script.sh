@@ -123,6 +123,8 @@ then
 			    echo "ERROR: Directory modernpaintball is missing."
 			    # curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
 			    echo "Mod downloaded. :)"
+			    chmod -R 777 /home/cod4/gamefiles
+			    chown -R $PUID:$PGID /home/cod4/gamefiles
 			fi
 		else
 			echo "Mod enabled (Is not modernpaintball)"
