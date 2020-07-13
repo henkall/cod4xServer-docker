@@ -1,6 +1,4 @@
 #!/bin/bash
-chmod -R 777 /home/cod4/gamefiles
-chown -R $PUID:$PGID /home/cod4/gamefiles
 echo "Server Starting ----------------------------------------------------------------------------------"
 if [ -d "main" ]
 then
@@ -88,13 +86,14 @@ then
 			echo $servergood
 		fi
 	else
-		servergood=0
+		# servergood=0
 		echo $servergood
-		echo "ERROR: Permissions on gamfiles directory has to be 777 or 2777"
-		echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
+		echo " Fixing permissions "
+		# echo "ERROR: Permissions on gamfiles directory has to be 777 or 2777"
+		# echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 		chmod -R 777 /home/cod4/gamefiles
 		chown -R $PUID:$PGID /home/cod4/gamefiles
-		echo "fix applied to gamefiles ------------------------------------------------------- Please restart container --------------------"
+		echo "fix applied to gamefiles ---------------------------------------------------------------------------"
 	fi
 fi
 
@@ -157,8 +156,8 @@ then
 		fi
 	fi
 else
-	echo "ERROR: Permissions on gamefiles directory has to be 777 or 2777"
-	echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
+	# echo "ERROR: Permissions on gamefiles directory has to be 777 or 2777"
+	# echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 	chmod -R 777 /home/cod4/gamefiles
 	chown -R $PUID:$PGID /home/cod4/gamefiles
 	echo "fix applied to gamefiles ------------------------------------------------------- Please restart container --------------------"
