@@ -8,7 +8,7 @@ ENV EXTRA=""
 ENV SERVERTYPE=""
 ENV EXECFILE=""
 ENV PUID="1000"
-ENV GUID="100"
+ENV PGID="100"
 ENV GETGAMEFILES="0"
 # Setting a volume
 VOLUME ["/home/cod4/gamefiles/"]
