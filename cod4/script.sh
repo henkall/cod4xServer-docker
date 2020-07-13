@@ -86,7 +86,7 @@ then
 			echo $servergood
 		fi
 	else
-		# servergood=0
+		servergood=1
 		echo $servergood
 		echo " Fixing permissions "
 		# echo "ERROR: Permissions on gamfiles directory has to be 777 or 2777"
