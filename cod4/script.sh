@@ -83,7 +83,7 @@ then
 		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
 		echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 		chmod -R 777 /home/cod4/gamefiles
-		chown -R $PUID:$GUID /home/cod4/gamefiles
+		chown -R $PUID:$PGID /home/cod4/gamefiles
 		echo "fix applied to gamefiles ------------------------------------------------------- Please restart container --------------------"
 	fi
 fi
@@ -150,6 +150,6 @@ else
 	echo "ERROR: Permissions on gamefiles folder has to be 777 or 2777"
 	echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 	chmod -R 777 /home/cod4/gamefiles
-	chown -R $PUID:$GUID /home/cod4/gamefiles
+	chown -R $PUID:$PGID /home/cod4/gamefiles
 	echo "fix applied to gamefiles ------------------------------------------------------- Please restart container --------------------"
 fi
