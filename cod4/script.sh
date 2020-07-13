@@ -1,4 +1,6 @@
 #!/bin/bash
+chmod -R 777 /home/cod4/gamefiles
+chown -R $PUID:$PGID /home/cod4/gamefiles
 echo "Server Starting ----------------------------------------------------------------------------------"
 if [ -d "main" ]
 then
