@@ -67,8 +67,12 @@ then
 			then
 				curl http://linuxgsm.download/CallOfDuty4/cod4x18_1790_lnxded.tar.xz -o cod4x18.tar.xz && tar -xf cod4x18.tar.xz && rm cod4x18.tar.xz
 				curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+				chmod -R 777 runtime
+				chown -R $PUID:$PGID runtime
 			else
 				curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+				chmod -R 777 runtime
+				chown -R $PUID:$PGID runtime
 			fi
 			echo "Download Done"
 			chmod +x cod4x18_dedrun
