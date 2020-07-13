@@ -77,6 +77,8 @@ then
 			echo "Download Done"
 			chmod +x cod4x18_dedrun
 			echo ready
+			chmod -R 777 /home/cod4/gamefiles
+			chown -R $PUID:$PGID /home/cod4/gamefiles
 			servergood=1
 			echo $servergood
 		else
