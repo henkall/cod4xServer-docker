@@ -148,13 +148,9 @@ then
 			else
 				echo "Mod enabled (Is not modernpaintball)"
 			fi
-			chsh -s /bin/bash cod4
-			su cod4
 			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game Mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 		else
 			echo "Not using Mod"
-			chsh -s /bin/bash cod4
-			su cod4
 			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 		fi
 	fi
