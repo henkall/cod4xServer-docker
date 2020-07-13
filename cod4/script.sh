@@ -9,9 +9,6 @@ then
 	   echo "Permissions on 'main' directory fine"
     else
 	   echo "ERROR: Permissions on 'main' directory has to be 777 or 2777"
-	   echo "ERROR: Go into gamefiles directory and run command: chmod -R 777 * "
-	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
-	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
 	   chmod -R 777 /home/cod4/gamefiles/main
 	   echo "fix applied to main ---------------------------------------------------------------------------"
     fi
@@ -27,9 +24,6 @@ then
 	   echo "Permissions on 'zone' directory fine"
     else
 	   echo "ERROR: Permissions on 'zone' directory has to be 777 or 2777"
-	   echo "ERROR: Go into gamefiles directory and run command: chmod -R 777 * "
-	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
-	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
 	   chmod -R 777 /home/cod4/gamefiles/zone
 	   echo "fix applied to zone ---------------------------------------------------------------------------"
     fi
@@ -77,13 +71,9 @@ then
 		echo ready
 		chmod -R 777 /home/cod4/gamefiles
 		chown -R $PUID:$PGID /home/cod4/gamefiles
-		servergood=1
-		echo $servergood
 	else
 		chmod +x cod4x18_dedrun
 		echo "cod4x18_dedrun found" 
-		servergood=1
-		echo $servergood
 	fi
 fi
 
@@ -118,37 +108,28 @@ then
   MAP="+map_rotate"
 fi
 echo "Checking if READY"
-if [ $servergood -eq 1 ]
+echo "server is good"
+if [ ! -z "${READY}" ] 
 then
-	echo "server is good"
-	if [ ! -z "${READY}" ] 
-	then
-		echo "Config is Ready"
-		if [[ ! -z "${MODNAME}" ]]; then
-			echo "Mod enabled (using $MODNAME mod)"
-			if [ $MODNAME = "modernpaintball" ]
+	echo "Config is Ready"
+	if [[ ! -z "${MODNAME}" ]]; then
+		echo "Mod enabled (using $MODNAME mod)"
+		if [ $MODNAME = "modernpaintball" ]
+		then
+			if [ -d "Mods/modernpaintball" ]
 			then
-				if [ -d "Mods/modernpaintball" ]
-				then
-				    echo "Directory modernpaintball exists."
-				else
-				    echo "ERROR: Directory modernpaintball is missing."
-				    # curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
-				    echo "Mod downloaded. :)"
-				fi
+			    echo "Directory modernpaintball exists."
 			else
-				echo "Mod enabled (Is not modernpaintball)"
+			    echo "ERROR: Directory modernpaintball is missing."
+			    # curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
+			    echo "Mod downloaded. :)"
 			fi
-			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game Mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 		else
-			echo "Not using Mod"
-			./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
+			echo "Mod enabled (Is not modernpaintball)"
 		fi
+		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game Mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
+	else
+		echo "Not using Mod"
+		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	fi
-else
-	# echo "ERROR: Permissions on gamefiles directory has to be 777 or 2777"
-	# echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
-	chmod -R 777 /home/cod4/gamefiles
-	chown -R $PUID:$PGID /home/cod4/gamefiles
-	echo "fix applied to gamefiles ------------------------------------------------------- Please restart container --------------------"
 fi
