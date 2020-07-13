@@ -6,10 +6,10 @@ then
     foldermain=$(stat --format '%a' /home/cod4/gamefiles/main)
     if [ $foldermain -eq 2777 -o $foldermain -eq 777 ]
 	then
-	   echo "Permissions on 'main' folder fine"
+	   echo "Permissions on 'main' directory fine"
     else
-	   echo "ERROR: Permissions on 'main' folder has to be 777 or 2777"
-	   echo "ERROR: Go into gamefiles folder and run command: chmod -R 777 * "
+	   echo "ERROR: Permissions on 'main' directory has to be 777 or 2777"
+	   echo "ERROR: Go into gamefiles directory and run command: chmod -R 777 * "
 	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
 	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
 	   chmod -R 777 /home/cod4/gamefiles/main
@@ -24,10 +24,10 @@ then
     folderzone=$(stat --format '%a' /home/cod4/gamefiles/zone)
     if [ $folderzone -eq 2777 -o $folderzone -eq 777 ]
 	then
-	   echo "Permissions on 'zone' folder fine"
+	   echo "Permissions on 'zone' directory fine"
     else
-	   echo "ERROR: Permissions on 'zone' folder has to be 777 or 2777"
-	   echo "ERROR: Go into gamefiles folder and run command: chmod -R 777 * "
+	   echo "ERROR: Permissions on 'zone' directory has to be 777 or 2777"
+	   echo "ERROR: Go into gamefiles directory and run command: chmod -R 777 * "
 	   echo "ERROR: You could also just reset your permissions on OpenMediaVault share"
 	   echo "ERROR: Requires the reset permissions plugin. Set Permissions to Everyone"
 	   chmod -R 777 /home/cod4/gamefiles/zone
@@ -41,12 +41,16 @@ then
     echo " Directory Mods exists."
 else
     echo "ERROR: Directory Mods is missing"
+    mkdir Mods
+    echo "Mods directory has been created"
 fi
 if [ -d "usermaps" ]
 then
     echo " Directory usermaps exists."
 else
     echo "ERROR: Directory usermaps is missing"
+    mkdir usermaps
+    echo "usermaps directory has been created"
 fi
 if [ -d "/home/cod4/gamefiles" ]
 then
@@ -80,7 +84,7 @@ then
 	else
 		servergood=0
 		echo $servergood
-		echo "ERROR: Permissions on gamfiles folder has to be 777 or 2777"
+		echo "ERROR: Permissions on gamfiles directory has to be 777 or 2777"
 		echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 		chmod -R 777 /home/cod4/gamefiles
 		chown -R $PUID:$PGID /home/cod4/gamefiles
@@ -147,7 +151,7 @@ then
 		fi
 	fi
 else
-	echo "ERROR: Permissions on gamefiles folder has to be 777 or 2777"
+	echo "ERROR: Permissions on gamefiles directory has to be 777 or 2777"
 	echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
 	chmod -R 777 /home/cod4/gamefiles
 	chown -R $PUID:$PGID /home/cod4/gamefiles
