@@ -55,47 +55,35 @@ fi
 if [ -d "/home/cod4/gamefiles" ]
 then
 	echo " Directory gamefiles exists"
-	folderperm=$(stat --format '%a' /home/cod4/gamefiles)
-	echo $folderperm
-	if [ $folderperm -eq 2777 -o $folderperm -eq 777 ]
+	chmod -R 777 /home/cod4/gamefiles
+	chown -R $PUID:$PGID /home/cod4/gamefiles
+	echo "Permissions fine"
+	if [ ! -f cod4x18_dedrun ]
 	then
-		echo "Permissions fine"
-		if [ ! -f cod4x18_dedrun ]
+		echo "cod4x18_dedrun not found... trying to download it."
+		if [ $GETGAMEFILES -eq 1 ]
 		then
-			echo "cod4x18_dedrun not found... trying to download it."
-			if [ $GETGAMEFILES -eq 1 ]
-			then
-				curl http://linuxgsm.download/CallOfDuty4/cod4x18_1790_lnxded.tar.xz -o cod4x18.tar.xz && tar -xf cod4x18.tar.xz && rm cod4x18.tar.xz
-				curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
-				chmod -R 777 runtime
-				chown -R $PUID:$PGID runtime
-			else
-				curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
-				chmod -R 777 runtime
-				chown -R $PUID:$PGID runtime
-			fi
-			echo "Download Done"
-			chmod +x cod4x18_dedrun
-			echo ready
-			chmod -R 777 /home/cod4/gamefiles
-			chown -R $PUID:$PGID /home/cod4/gamefiles
-			servergood=1
-			echo $servergood
+			curl http://linuxgsm.download/CallOfDuty4/cod4x18_1790_lnxded.tar.xz -o cod4x18.tar.xz && tar -xf cod4x18.tar.xz && rm cod4x18.tar.xz
+			curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+			chmod -R 777 runtime
+			chown -R $PUID:$PGID runtime
 		else
-			chmod +x cod4x18_dedrun
-			echo "cod4x18_dedrun found" 
-			servergood=1
-			echo $servergood
+			curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfiles.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+			chmod -R 777 runtime
+			chown -R $PUID:$PGID runtime
 		fi
-	else
-		servergood=1
-		echo $servergood
-		echo " Fixing permissions "
-		# echo "ERROR: Permissions on gamfiles directory has to be 777 or 2777"
-		# echo "ERROR: Do a chmod -R 777 /path/to/gamefiles"
+		echo "Download Done"
+		chmod +x cod4x18_dedrun
+		echo ready
 		chmod -R 777 /home/cod4/gamefiles
 		chown -R $PUID:$PGID /home/cod4/gamefiles
-		echo "fix applied to gamefiles ---------------------------------------------------------------------------"
+		servergood=1
+		echo $servergood
+	else
+		chmod +x cod4x18_dedrun
+		echo "cod4x18_dedrun found" 
+		servergood=1
+		echo $servergood
 	fi
 fi
 
