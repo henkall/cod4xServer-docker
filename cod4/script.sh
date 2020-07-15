@@ -112,6 +112,13 @@ echo "server is good"
 if [ ! -z "${READY}" ] 
 then
 	echo "Config is Ready"
+	if [ ! -f autoupdate.lock ]
+	then
+	echo "Server is ready for updates if any"
+	else
+	echo "autoupdate.lock fund. Please remove it if this fails"
+	rm -r autoupdate.lock
+	fi
 	if [[ ! -z "${MODNAME}" ]]; then
 		echo "Mod enabled (using $MODNAME mod)"
 		if [ $MODNAME = "modernpaintball" ]
