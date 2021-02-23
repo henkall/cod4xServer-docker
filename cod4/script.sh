@@ -41,6 +41,7 @@ fi
 if [ -d "usermaps" ]
 then
     echo " Directory usermaps exists."
+    ls -1 /home/cod4/gamefiles/usermaps/ > /home/cod4/.callofduty4/usercustommaps.list
 else
     echo "ERROR: Directory usermaps is missing"
     mkdir usermaps
@@ -136,9 +137,11 @@ then
 		else
 			echo "Mod enabled (Is not modernpaintball)"
 		fi
+		ls -1 /home/cod4/gamefiles/usermaps/ > /home/cod4/.callofduty4/usercustommaps.list
 		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "+set fs_game Mods/$MODNAME" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	else
 		echo "Not using Mod"
+		ls -1 /home/cod4/gamefiles/usermaps/ > /home/cod4/.callofduty4/usercustommaps.list
 		./cod4x18_dedrun "+set dedicated $SERVERTYPE" "+set net_port $PORT" "$EXTRA" "+exec $EXECFILE" "$MAP"
 	fi
 fi
