@@ -59,7 +59,7 @@ If you are running with a mod then the server.cfg file for that mod has to be in
 | **Host path** | **Container path** | Note |
 | --- | --- | --- |
 | /Path/to/COD4/gamefiles | /home/cod4/gamefiles | This is where the main, zone, mods and usermaps folders is going to be|
-| /Path/to/htmlfolder/serverstats | /home/cod4/.callofduty4 | This is where the statfiles is being generated. Most likely it will be in /Path/to/AppData/wwwphp/html/serverstats but may bee difrent from case to case.|
+| /Path/to/htmlfolder/serverstats | /home/cod4/.callofduty4 | This is where the statusfiles is being generated (serverstatus.xml and usercustommaps.list). Some of these files is used for the webgui to function. Most likely it will be in /Path/to/AppData/wwwphp/html/serverstats but may bee difrent from case to case.|
 
 | **Folders** | **Description** |
 | --- | --- |
