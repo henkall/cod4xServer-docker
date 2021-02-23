@@ -42,6 +42,7 @@ services:
     volumes:
       # Remember to change this
       - /Path/to/COD4/gamefiles:/home/cod4/gamefiles
+      - /Path/to/htmlfolder/serverstats:/home/cod4/.callofduty4
 ~~~
 
 Note the files can be found in the installed game directory. 
@@ -57,7 +58,8 @@ If you are running with a mod then the server.cfg file for that mod has to be in
 
 | **Host path** | **Container path** | Note |
 | --- | --- | --- |
-| /path/to/COD4/gamefiles | /home/cod4/gamefiles | This is where the main, zone, mods and usermaps folders is going to be|
+| /Path/to/COD4/gamefiles | /home/cod4/gamefiles | This is where the main, zone, mods and usermaps folders is going to be|
+| /Path/to/htmlfolder/serverstats | /home/cod4/.callofduty4 | This is where the statfiles is being generated. Most likely it will be in /Path/to/AppData/wwwphp/html/serverstats but may bee difrent from case to case.|
 
 | **Folders** | **Description** |
 | --- | --- |
