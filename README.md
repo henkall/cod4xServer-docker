@@ -6,7 +6,7 @@ Update: New feature. The docker can now get the gamefiles for you.
 
 [![](https://images.microbadger.com/badges/version/henkallsn/docker-cod4.svg)](https://microbadger.com/images/henkallsn/docker-cod4 "Image Version")
 [![](https://images.microbadger.com/badges/image/henkallsn/docker-cod4.svg)](https://microbadger.com/images/henkallsn/docker-cod4 "Image Size")
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=RVCZJCWKD9CSW&currency_code=EUR&source=url)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/henkallsn)
 - Based on:
     - [Cod4x](https://cod4x.me/) server program
     - Unzip and curl to download the Cod4x
