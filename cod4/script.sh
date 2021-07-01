@@ -59,11 +59,11 @@ then
 		if [ $GETGAMEFILES -eq 1 ]
 		then
 			curl http://linuxgsm.download/CallOfDuty4/cod4x18_1790_lnxded.tar.xz -o cod4x18.tar.xz && tar -xf cod4x18.tar.xz && rm cod4x18.tar.xz
-			curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfilesnew.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+			curl https://raw.githubusercontent.com/henkall/cod4xServer-docker/master/cod4xfilesnew.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
 			chmod -R 777 runtime
 			chown -R $PUID:$PGID runtime
 		else
-			curl https://raw.githubusercontent.com/henkall/docker-cod4/master/cod4xfilesnew.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
+			curl https://raw.githubusercontent.com/henkall/cod4xServer-docker/master/cod4xfilesnew.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
 			chmod -R 777 runtime
 			chown -R $PUID:$PGID runtime
 		fi
@@ -130,6 +130,10 @@ then
 			else
 			    echo "ERROR: Directory modernpaintball is missing."
 			    # curl https://raw.githubusercontent.com/henkall/docker-cod4/master/modernpaintball.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
+			    curl https://raw.githubusercontent.com/henkall/cod4xServer-docker/master/modernpainballv2.zip -o modernpaintball.zip && unzip -o modernpaintball.zip && rm modernpaintball.zip
+			    curl https://www.notgoodbutcrazy.eu/NGBCteam/download/mods/modernpaintballv2.tar.bz2 -o mpmaps.tar.bz2
+			    tar -xvjf mpmaps.tar.bz2 Paintball_mod/usermaps --strip-components=1
+			    rm mpmaps.tar.bz2
 			    echo "Mod downloaded. :)"
 			    chmod -R 777 /home/cod4/gamefiles
 			    chown -R $PUID:$PGID /home/cod4/gamefiles
