@@ -79,7 +79,7 @@ Here is a list of commands that I use:
 | SERVERTYPE | 2 Is for Internet. 1 Is for LAN. If 2 is used you have to use: set sv_authtoken "mytokenhere" in the server.cfg file. You can read about it [HERE]. |  1 |
 | PORT | Set what port the server should run on. If left empty this defaults to 28960 | 28960 |
 | MAP | Starts the server with the defined rotate sequens in server.cfg file. | +map_rotate |
-| MODNAME | Defines what mod you whant to use. Write the name of the folder that you mod is in. For example moderpaintball. | $MODNAME$ |
+| MODNAME | Defines what mod you whant to use. Write the name of the folder that you mod is in. For example modernpaintball. | $MODNAME$ |
 | EXTRA | 1 only allows players with legal copies to join, 0 allows cracked players, and -1 allows both types of players while the Activison authentication server is down. | +set sv_authorizemode -1 |
 | GETGAMEFILES | Tells the server to get gamefiles or not. 1 is to get files. 0 is not to get files. | 1 |
 
