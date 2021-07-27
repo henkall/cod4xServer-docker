@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM romeoz/docker-apache-php
 # Running options to COD4 server
 ENV READY=""
 ENV PORT="28960"
