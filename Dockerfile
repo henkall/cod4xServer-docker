@@ -12,6 +12,8 @@ ENV PGID="100"
 ENV GETGAMEFILES="0"
 # Setting a volume
 VOLUME ["/home/cod4/gamefiles/"]
+# Ports to webgui
+EXPOSE 443 80
 # Installing dependencies
 RUN apt-get update && \
     apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils
@@ -27,4 +29,4 @@ RUN adduser --system cod4 --home /home/cod4 --uid 1000 && \
     chmod -R 777 /home/cod4/gamefiles && \
     # Making file executable
     chmod +x /home/cod4/script.sh
-ENTRYPOINT ["/bin/bash","/home/cod4/script.sh"]
+ENTRYPOINT ["/bin/bash","/home/cod4/script.sh","/sbin/entrypoint.sh"]
