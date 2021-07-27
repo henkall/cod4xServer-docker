@@ -22,11 +22,11 @@ WORKDIR /home/cod4/gamefiles
 COPY --chown=1000 cod4/script.sh /home/cod4/
 # Adding user "cod4" and setting permissions
 RUN adduser --system cod4 --home /home/cod4 --uid 1000 && \
-    chsh -s /bin/bash cod4 && \
-    chown -R cod4 /home/cod4 && \
+    #chsh -s /bin/bash cod4 && \
+    #chown -R cod4 /home/cod4 && \
     chmod -R 777 /home/cod4 && \
-    chown -R cod4 /home/cod4/gamefiles && \
+    #chown -R cod4 /home/cod4/gamefiles && \
     chmod -R 777 /home/cod4/gamefiles && \
     # Making file executable
     chmod +x /home/cod4/script.sh
-ENTRYPOINT ["/bin/bash","/home/cod4/script.sh","/sbin/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash","/home/cod4/script.sh"]
