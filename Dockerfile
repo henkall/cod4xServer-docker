@@ -16,7 +16,7 @@ VOLUME ["/home/cod4/gamefiles/"]
 EXPOSE 443 80
 # Installing dependencies
 RUN apt-get update && \
-    apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils
+    apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils nano
 WORKDIR /home/cod4/gamefiles
 # Adding files from github
 COPY --chown=1000 cod4/script.sh /home/cod4/
