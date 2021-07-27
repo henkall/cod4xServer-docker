@@ -19,7 +19,7 @@ RUN apt-get update && \
     apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils nano
 WORKDIR /root/gamefiles
 # Adding files from github
-COPY --chown=1000 cod4/script.sh /root/
+COPY cod4/script.sh /root/
 # Adding user "cod4" and setting permissions
 RUN chsh -s /bin/bash root && \
     chmod -R 777 /root && \
