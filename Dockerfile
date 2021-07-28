@@ -26,4 +26,5 @@ RUN chsh -s /bin/bash root && \
     chmod -R 777 /root/gamefiles && \
     # Making file executable
     chmod +x /root/script.sh
-ENTRYPOINT ["/bin/bash","/root/script.sh"]
+#ENTRYPOINT ["/bin/bash","/root/script.sh"]
+ENTRYPOINT ["/sbin/entrypoint.sh"]
