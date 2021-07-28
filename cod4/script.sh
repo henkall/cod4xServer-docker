@@ -9,7 +9,7 @@ then
 	   echo "Permissions on 'main' directory fine"
     else
 	   echo "ERROR: Permissions on 'main' directory has to be 777 or 2777"
-	   chmod -R 777 /root/gamefiles/main
+	   chmod -R 2777 /root/gamefiles/main
 	   echo "fix applied to main ---------------------------------------------------------------------------"
     fi
 else
@@ -24,7 +24,7 @@ then
 	   echo "Permissions on 'zone' directory fine"
     else
 	   echo "ERROR: Permissions on 'zone' directory has to be 777 or 2777"
-	   chmod -R 777 /root/gamefiles/zone
+	   chmod -R 2777 /root/gamefiles/zone
 	   echo "fix applied to zone ---------------------------------------------------------------------------"
     fi
 else
@@ -50,7 +50,7 @@ fi
 if [ -d "/root/gamefiles" ]
 then
 	echo " Directory gamefiles exists"
-	chmod -R 777 /root/gamefiles
+	chmod -R 2777 /root/gamefiles
 	chown -R $PUID:$PGID /root/gamefiles
 	echo "Permissions fine"
 	if [ ! -f cod4x18_dedrun ]
@@ -60,17 +60,17 @@ then
 		then
 			curl http://linuxgsm.download/CallOfDuty4/cod4x18_1790_lnxded.tar.xz -o cod4x18.tar.xz && tar -xf cod4x18.tar.xz && rm cod4x18.tar.xz
 			curl https://raw.githubusercontent.com/henkall/cod4xServer-docker/master/cod4xfilesnew.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
-			chmod -R 777 runtime
+			chmod -R 2777 runtime
 			chown -R $PUID:$PGID runtime
 		else
 			curl https://raw.githubusercontent.com/henkall/cod4xServer-docker/master/cod4xfilesnew.zip -o cod4xfiles.zip && unzip -o cod4xfiles.zip && rm cod4xfiles.zip
-			chmod -R 777 runtime
+			chmod -R 2777 runtime
 			chown -R $PUID:$PGID runtime
 		fi
 		echo "Download Done"
 		chmod +x cod4x18_dedrun
 		echo ready
-		chmod -R 777 /root/gamefiles
+		chmod -R 2777 /root/gamefiles
 		chown -R $PUID:$PGID /root/gamefiles
 	else
 		chmod +x cod4x18_dedrun
@@ -135,7 +135,7 @@ then
 			    tar -xvjf mpmaps.tar.bz2 Paintball_mod/usermaps --strip-components=1
 			    rm mpmaps.tar.bz2
 			    echo "Mod downloaded. :)"
-			    chmod -R 777 /root/gamefiles
+			    chmod -R 2777 /root/gamefiles
 			    chown -R $PUID:$PGID /root/gamefiles
 			fi
 		else
