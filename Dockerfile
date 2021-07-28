@@ -7,8 +7,8 @@ ENV MAP="+map_rotate"
 ENV EXTRA=""
 ENV SERVERTYPE=""
 ENV EXECFILE=""
-ENV HOST_UID="1000"
-ENV HOST_GID="100"
+ENV PUID="1000"
+ENV PGID="100"
 ENV GETGAMEFILES="0"
 # Setting a volume
 VOLUME ["/root/gamefiles/"]
