@@ -1,5 +1,32 @@
 #!/bin/bash
 echo "Server Starting ----------------------------------------------------------------------------------"
+
+
+if [ -z "${PUID}" ]; then
+  echo "Host user ID not found in environment. Using root (0)."
+  export PUID=0
+fi
+
+if [ -z "${PGID}" ]; then
+  echo "Host group ID not found in environment. Using root (0)."
+  export PGID=0
+fi
+
+if ! getent group "${PGID}" | cut -d: -f1 | read; then 
+  addgroup cod4 -g "${PGID}"
+  HOST_GROUPNAME="cod4"
+else
+  HOST_GROUPNAME=`getent group "${PGID}" | cut -d: -f1`
+fi
+
+if ! getent passwd "${PUID}" | cut -d: -f1 | read; then 
+  adduser cod4 -D -G "$HOST_GROUPNAME" --uid "$PUID"
+  HOST_USERNAME="cod4"
+else
+  HOST_USERNAME=`getent passwd "${PUID}" | cut -d: -f1`
+fi
+
+
 if [ -d "main" ]
 then
     echo " Directory main exists."
