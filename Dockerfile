@@ -21,7 +21,7 @@ WORKDIR /root/gamefiles
 # Adding files from github
 COPY cod4/script.sh /root/
 COPY cod4/entrypoint.sh /root/
-# Adding user "cod4" and setting permissions
+# Running with root
 RUN chsh -s /bin/bash root && \
     chmod -R 2777 /root && \
     chmod -R 2777 /root/gamefiles && \
@@ -31,5 +31,4 @@ RUN chsh -s /bin/bash root && \
     # Making file executable
     chmod +x /root/script.sh && \
     chmod +x /root/entrypoint.sh
-#ENTRYPOINT ["/bin/bash","/root/script.sh"]
 ENTRYPOINT ["/root/entrypoint.sh"]
