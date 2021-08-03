@@ -25,7 +25,6 @@ RUN chsh -s /bin/bash root && \
     chmod -R 2777 /root && \
     chmod -R 2777 /root/gamefiles && \
     # Making folder to webfiles
-    mkdir /root/gamefiles/scripts && \
     chmod -R 2777 /root/gamefiles/scripts && \    
     mkdir /root/gamefiles/cod4 && \
     chmod -R 2777 /root/gamefiles/cod4 && \
