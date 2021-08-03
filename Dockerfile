@@ -21,8 +21,7 @@ RUN apt-get update && \
 COPY cod4/script.sh /root
 COPY cod4/entrypoint.sh /root
 # Running with root
-RUN chsh -s /bin/bash root && \
-    chmod -R 2777 /root && \
+RUN chmod -R 2777 /root && \
     chmod -R 2777 /root/gamefiles && \
     # Making folder to webfiles
     mkdir /root/gamefiles/scripts && \
