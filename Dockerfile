@@ -22,12 +22,6 @@ COPY cod4/script.sh /root
 COPY cod4/entrypoint.sh /root
 # Running with root
 RUN chmod -R 2777 /root && \
-    chmod -R 2777 /root/gamefiles && \
-    # Making folder to webfiles
-    mkdir /root/gamefiles/scripts && \
-    chmod -R 2777 /root/gamefiles/scripts && \
-    mkdir /root/gamefiles/cod4 && \
-    chmod -R 2777 /root/gamefiles/cod4 && \
     # Making file executable
     chmod +x /root/script.sh && \
     chmod +x /root/entrypoint.sh
