@@ -16,7 +16,8 @@ VOLUME ["/root/gamefiles/"]
 EXPOSE 443 80
 # Installing dependencies
 RUN apt-get update && \
-    apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils nano
+    apt-get install -y gcc-multilib g++-multilib unzip curl xz-utils nano && \
+    rm -f /var/cache/apk/*
 # Adding files from github
 COPY cod4/script.sh /root
 COPY cod4/entrypoint.sh /root
